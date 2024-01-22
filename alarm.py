@@ -12,6 +12,7 @@ def set_alarm():
 
 root = tk.Tk()
 root.title("Alarm Uygulaması")
+root.geometry("200x100")
 
 label = tk.Label(root, text="Alarm zamanını girin (HH:MM):")
 label.pack()
