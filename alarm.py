@@ -5,11 +5,10 @@ import winsound
 def set_alarm():
     alarm_time = entry.get()
     alarm_hour, alarm_minute = map(int, alarm_time.split(':'))
-    while True:
-        current_time = datetime.datetime.now()
-        if current_time.hour == alarm_hour and current_time.minute == alarm_minute:
-            winsound.PlaySound("SystemAsterisk", winsound.SND_ASYNC)
-            break
+    alarm_datetime = datetime.datetime.now().replace(hour=alarm_hour, minute=alarm_minute, second=0, microsecond=0)
+    while datetime.datetime.now() < alarm_datetime:
+        pass
+    winsound.PlaySound("SystemAsterisk", winsound.SND_ASYNC)
 
 root = tk.Tk()
 root.title("Alarm Uygulaması")
